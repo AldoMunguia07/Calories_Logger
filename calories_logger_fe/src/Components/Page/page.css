@@ -1,19 +1,21 @@
 .page {
-  background-color: #ddd;
-  color: #333;
-  min-height: 100vh;
+    background-color: #f3f4f6;
+    color: #333;
+    min-width: 100vw;
+    min-height: 100vh;
 }
 .absoluteCenter {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-wrap: wrap;
-  flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
-.withNavBar{
-  min-height: calc(100vh - 4rem);
+.withNavBar {
+    min-height: calc(100vh - 4rem);
 }
 .content {
-  background-color:#fff;
-  padding:1rem;
+    background-color: #fff;
+    border-radius: 1.5rem;
+    width: 400px;
 }

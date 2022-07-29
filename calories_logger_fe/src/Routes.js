@@ -1,21 +1,63 @@
-import { BrowserRouter as Router, Route, Routes as Switch, Navigate } from 'react-router-dom';
+import {
+    BrowserRouter as Router,
+    Route,
+    Routes as Switch,
+    Navigate,
+} from 'react-router-dom';
 import PrivateRoute from './Components/PrivateRoute';
 import Login from './Views/Login';
 import SignIn from './Views/Signin';
 import Summary from './Views/Summary';
 import CashFlowForm from './Views/CashFlowForm';
+import NuevaCaloria from './Views/Calorias/NuevaCaloria';
+import Calorias from './Views/Calorias/Calorias';
+import Resumen from './Views/Calorias/Resumen';
+import OlvidePassword from './Views/Password/OlvidePassword';
+
 const Routes = () => {
-  return (
-    <Router>
-      <Switch>
-        <Route path="/" element={<Navigate to="/login" />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/signin' element={<SignIn />} />
-        <Route path="/home" element={<PrivateRoute><Summary /></PrivateRoute>} />
-        <Route path="/add/:type" element={<PrivateRoute><CashFlowForm /></PrivateRoute>} />
-      </Switch>
-    </Router>
-  );
-}
+    return (
+        <Router>
+            <Switch>
+                <Route path="/" element={<Navigate to="/login" />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signin" element={<SignIn />} />
+                <Route path="/olvide-password" element={<OlvidePassword />} />
+                <Route
+                    path="/home"
+                    element={
+                        <PrivateRoute>
+                            {/* <Summary /> */}
+                            <Resumen />
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/calorias"
+                    element={
+                        <PrivateRoute>
+                            <Calorias />
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/nueva-caloria"
+                    element={
+                        <PrivateRoute>
+                            <NuevaCaloria />
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/add/:type"
+                    element={
+                        <PrivateRoute>
+                            <CashFlowForm />
+                        </PrivateRoute>
+                    }
+                />
+            </Switch>
+        </Router>
+    );
+};
 
 export default Routes;
