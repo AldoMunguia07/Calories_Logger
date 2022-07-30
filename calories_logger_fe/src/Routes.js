@@ -7,11 +7,11 @@ import {
 import PrivateRoute from './Components/PrivateRoute';
 import Login from './Views/Login';
 import SignIn from './Views/Signin';
-import Summary from './Views/Summary';
 import NuevaCaloria from './Views/Calorias/NuevaCaloria';
 import Calorias from './Views/Calorias/Calorias';
 import Resumen from './Views/Calorias/Resumen';
 import OlvidePassword from './Views/Password/OlvidePassword';
+import CambiarPassword from './Views/Password/CambiarPassword';
 
 const Routes = () => {
     return (
@@ -21,6 +21,8 @@ const Routes = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/olvide-password" element={<OlvidePassword />} />
+                <Route path="/cambiar-password/:token" element={<CambiarPassword />} />
+
                 <Route
                     path="/home"
                     element={

@@ -101,11 +101,11 @@ input[type='submit']:hover {
 }
 
 .alerta-error {
-    background-color: #f87171;
+    background-color: #d11111;
 }
 
 .alerta-exito {
-    background-color: #fbbf24;
+    background-color: #239c05;
 }
 
 .header {

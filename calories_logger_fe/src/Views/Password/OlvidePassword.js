@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import Page from '../../Components/Page';
 import { Field } from '../../Components/InputField';
 import Alerta from '../../Components/Alerta';
-
+import { useDispatch } from "react-redux";
+import { sendEmailToken } from "./OlvidePasswordActions";
 const OlvidePassword = () => {
     const [alerta, setAlerta] = useState({});
     const [correo, setCorreo] = useState('');
+    const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -21,12 +23,22 @@ const OlvidePassword = () => {
 
         //TODO comenzar con recuperacion
         try {
-            setAlerta({
-                msg: 'Hemos enviado las instrucciones a tu correo',
-                error: false,
-            });
-            setCorreo('');
+            const ok = await sendEmailToken(dispatch, correo);
+
+            if(ok)
+            {
+                setAlerta({
+                    msg: 'Hemos enviado las instrucciones a tu correo',
+                    error: false,
+                });
+                setCorreo('');
+            }
+
         } catch (error) {
+            setAlerta({
+                msg: 'Correo electrónico no encontrado',
+                error: true,
+            });
             console.log(error);
         }
     };
@@ -35,7 +47,7 @@ const OlvidePassword = () => {
         <Page
             showNavBar={true}
             useAbsoluteCenter={true}
-            pageTitle="Olvide mi Password :("
+            pageTitle="Olvide mi contraseña :("
         >
             <h1 className="titulo-login">Calories Logger</h1>
 

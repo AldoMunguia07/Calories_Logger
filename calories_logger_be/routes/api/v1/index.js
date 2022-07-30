@@ -6,8 +6,10 @@ const { jwtAuthorizer } = require('./middlewares/jwtAuthorizer');
 
 const usuariosRoutes = require('./security');
 const caloriasRoutes = require('./calorias');
+const forgotRoutes = require('./forgotPassword');
 
 router.use('/security', authorizer ,usuariosRoutes);
 router.use('/calorias', authorizer,jwtAuthorizer ,caloriasRoutes);
+router.use('/forgot-password', forgotRoutes);
 
 module.exports = router;

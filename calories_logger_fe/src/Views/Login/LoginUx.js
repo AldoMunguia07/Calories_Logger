@@ -50,7 +50,7 @@ const LoginInUx = ({
                 </Link>
 
                 <Link className="crear-cuenta" to="/olvide-password">
-                    Olvidé mi Password
+                    Olvidé mi contraseña
                 </Link>
             </nav>
         </Page>

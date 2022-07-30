@@ -46,6 +46,10 @@ const Login = () => {
             await submitLogin(dispatch, formValues.email, formValues.password);
             Navigator('/home');
         } catch (ex) {
+            setAlerta({
+                msg: 'Credenciales incorrectas',
+                error: true,
+            });
             console.log(ex);
         }
     };

@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
-
+import { useDispatch } from 'react-redux';
 const Header = ({usuario}) => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const SingOut = async (e) => {
         e.preventDefault();
-        localStorage.removeItem('auth');
+        dispatch({ type: "LOGIN_SIGNOUT", payload: null })
         navigate("/login");
 
     };

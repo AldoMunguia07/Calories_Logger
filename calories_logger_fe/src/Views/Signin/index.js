@@ -37,7 +37,7 @@ const SignIn = () => {
 
         if (password.length < 6) {
             setAlerta({
-                msg: 'El password debe de tener al menos 6 caracteres',
+                msg: 'La contraseña debe de tener al menos 6 caracteres',
                 error: true,
             });
             return;
@@ -45,7 +45,7 @@ const SignIn = () => {
 
         if (password !== password2) {
             setAlerta({
-                msg: 'Los password no coinciden',
+                msg: 'Las contraseñas no coinciden',
                 error: true,
             });
             return;

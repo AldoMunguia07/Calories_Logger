@@ -33,6 +33,35 @@ module.exports = class UsuariosDao extends DaoObject {
     return super.insertOne(usuario);
   }
 
-  
+  getByEmail({email}) {
+
+    return this.findOne({email});
+  }
+
+  getByToken({token}) {
+
+    return this.findOne({token});
+  }
+
+  UpdateOneToken({codigo, token})
+    {
+        const updateCommand = {
+            '$set': {
+              token,
+              updatedToken: new Date().toISOString()
+            }
+        };
+        return super.updateOne(codigo, updateCommand);
+    }
+
+    updateOnePasword({codigo, password})
+    {
+        const updateCommand = {
+            '$set': {
+                password
+            }
+        };
+        return super.updateOne(codigo, updateCommand);
+    }
 
 }

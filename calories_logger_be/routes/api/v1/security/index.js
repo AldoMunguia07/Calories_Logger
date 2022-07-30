@@ -20,20 +20,20 @@ router.get('/listar', async (req, res) => {
 router.post('/login', async (req, res)=>{
   try {
     const {email, password} = req.body;
-    
+
     const usuario = await user.obtenerPorCorreo({email});
     if(usuario)
     {
       if(! user.compararContrasenia(password, usuario.password) ) {
-        console.error('security login: ', {error:`Credenciales para usuario ${usuario._id} ${usuario.email} incorrectas.`});
+        console.error('security login: ', {error:`Credenciales incorrectas.`});
         return res.status(403).json({ "error": "Credenciales no Válidas" });
       }
-    
+
       const {password: passwordDb, created, ...jwtUser} = usuario;
-   
+
       const jwtToken = await jwtSign({jwtUser, generated: new Date().getTime()});
 
-    
+
 
       return res.status(200).json({token: jwtToken});
     }
@@ -48,12 +48,12 @@ router.post('/login', async (req, res)=>{
 
 router.post('/registrarse', async (req, res) => {
   try {
-    const { 
+    const {
       email = '',
       password = '',
       nombre = '',
       ocupacion = '',
-      estado = '' 
+      estado = ''
       } = req.body;
 
     if (/^\s*$/.test(email)) {
@@ -88,8 +88,8 @@ router.post('/registrarse', async (req, res) => {
     {
       return res.status(403).json({ "error": "Este correo ya está en uso" });
     }
-    
-    
+
+
     const usuario = await user.agregarUsuario({
       email,
       password,
