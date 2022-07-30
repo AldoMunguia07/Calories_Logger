@@ -1,16 +1,24 @@
 import { useState } from 'react';
 import { Field } from '../../Components/InputField';
 import Alerta from '../../Components/Alerta';
+import { useDispatch, useSelector } from "react-redux";
+import { useParams, useNavigate } from "react-router-dom";
+import { postNewCalories } from "./CaloriasActions";
+
 
 const NuevaCaloria = () => {
     const [caloria, setCaloria] = useState('');
+    const [descripcion, setDescripcion] = useState('');
     const [alerta, setAlerta] = useState({});
-    const [fecha, setFecha] = useState('');
+    const [tipoEjercicio, setTipoEjercicio] = useState('');
 
-    const handleSubmit = (e) => {
+    const dispatch = useDispatch();
+
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if ([caloria, fecha].includes('')) {
+        if ([caloria,descripcion, tipoEjercicio].includes('')) {
             setAlerta({
                 msg: 'Todos los campos son obligatorios',
                 error: true,
@@ -18,10 +26,13 @@ const NuevaCaloria = () => {
             return;
         }
 
-        setAlerta({
-            msg: 'Agregada Correctamente',
-            error: false,
-        });
+        const ok = await postNewCalories(dispatch, caloria,descripcion, tipoEjercicio);
+        if (ok) {
+            setAlerta({
+                msg: 'Agregada Correctamente',
+                error: false,
+            });
+          }
 
         //TODO: Agregar caloria
     };
@@ -41,13 +52,21 @@ const NuevaCaloria = () => {
                     placeholder="Calorias Quemadas"
                 />
                 <Field
-                    name="fecha"
-                    labelText="fecha"
-                    type="date"
-                    value={fecha}
-                    onChange={(e) => setFecha(e.target.value)}
+                    name="tipoEjercicio"
+                    labelText="Tipo de ejercicio"
+                    type="text"
+                    value={tipoEjercicio}
+                    onChange={(e) => setTipoEjercicio(e.target.value)}
+                    placeholder="Tipo de ejercicio"
                 />
-
+                <Field
+                    name="descripcion"
+                    labelText="descripcion"
+                    type="text"
+                    value={descripcion}
+                    onChange={(e) => setDescripcion(e.target.value)}
+                    placeholder="Descripción"
+                />
                 <div className="botones">
                     <input type="submit" value="Registrar Caloria" />
                 </div>

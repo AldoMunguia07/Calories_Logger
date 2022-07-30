@@ -54,7 +54,7 @@ const SignIn = () => {
         try {
             setAlerta({});
             //TODO : CAMBIAR AQUI
-            const data = await getSignIn(formValues.email, formValues.password);
+            const data = await getSignIn(formValues.email, formValues.password, formValues.nombre, formValues.ocupacion);
             Navigator('/login');
         } catch (ex) {
             console.log(ex);

@@ -8,7 +8,6 @@ import PrivateRoute from './Components/PrivateRoute';
 import Login from './Views/Login';
 import SignIn from './Views/Signin';
 import Summary from './Views/Summary';
-import CashFlowForm from './Views/CashFlowForm';
 import NuevaCaloria from './Views/Calorias/NuevaCaloria';
 import Calorias from './Views/Calorias/Calorias';
 import Resumen from './Views/Calorias/Resumen';
@@ -47,14 +46,7 @@ const Routes = () => {
                         </PrivateRoute>
                     }
                 />
-                <Route
-                    path="/add/:type"
-                    element={
-                        <PrivateRoute>
-                            <CashFlowForm />
-                        </PrivateRoute>
-                    }
-                />
+                
             </Switch>
         </Router>
     );

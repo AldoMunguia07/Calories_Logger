@@ -1,10 +1,13 @@
 import { axiosPublic } from './axios';
-const getSignIn = (email, password) => {
+const getSignIn = (email, password, nombre, ocupacion) => {
   return axiosPublic.post(
-    '/auth/signin',
+    '/security/registrarse',
     {
       email,
-      password
+      password,
+      nombre,
+      ocupacion,
+      estado: "ACT"
     }
   )
 };

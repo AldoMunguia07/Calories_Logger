@@ -5,6 +5,7 @@ import Header from '../Header';
 import SideBar from '../SideBar';
 
 const PrivateRoute = ({ children }) => {
+    let nameUser = null;
     const user = useSelector((state) => state.security);
     if (user) {
         try {
@@ -14,6 +15,8 @@ const PrivateRoute = ({ children }) => {
             if (expired) {
                 return <Navigate to="/login" replace />;
             }
+            nameUser = decoded.jwtUser.nombre;
+            console.log(decoded);
         } catch (ex) {
             return <Navigate to="/login" replace />;
         }
@@ -22,7 +25,7 @@ const PrivateRoute = ({ children }) => {
     }
     return children ? (
         <>
-            <Header />
+            <Header usuario={`${nameUser}`}/>
 
             <div className="flex-layout">
                 <SideBar />
