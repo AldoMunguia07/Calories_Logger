@@ -29,12 +29,12 @@ const Calorias = () => {
             {cargando ? (
                 <Spinner />
             ) : caloriasState.length ? (
-                <>
+                <div className="scroll">
                     <h2 className="calorias-titulo">Tu actividad</h2>
                     {caloriasState.map((caloria) => (
                         <Caloria key={caloria._id} caloria={caloria} />
                     ))}
-                </>
+                </div>
             ) : (
                 <>
                     <p className="sin-calorias">
