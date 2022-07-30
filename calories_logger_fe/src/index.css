@@ -166,6 +166,7 @@ input[type='submit']:hover {
     font-weight: bold;
     font-size: 20px;
     margin-top: 0;
+    text-transform: uppercase;
 }
 .aside__enlaces {
     color: #fff;
@@ -200,7 +201,7 @@ input[type='submit']:hover {
 @media (min-width: 996px) {
     .formulario-calorias {
         width: 40%;
-        height: 50%;
+        height: 25rem;
         margin: 0 auto;
     }
 }
@@ -209,4 +210,30 @@ input[type='submit']:hover {
     text-align: center;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+.calorias {
+    background-color: #fff;
+    padding: 2rem;
+    margin-top: 5px;
+    text-transform: uppercase;
+    border-radius: 0.5rem;
+}
+
+.calorias-titulo {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 0;
+}
+.calorias p > span {
+    font-weight: bold;
+}
+
+.sin-calorias {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 0;
+    font-size: x-large;
 }

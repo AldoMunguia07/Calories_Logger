@@ -16,7 +16,7 @@ const PrivateRoute = ({ children }) => {
                 return <Navigate to="/login" replace />;
             }
             nameUser = decoded.jwtUser.nombre;
-            console.log(decoded);
+            //console.log(decoded);
         } catch (ex) {
             return <Navigate to="/login" replace />;
         }
@@ -25,7 +25,7 @@ const PrivateRoute = ({ children }) => {
     }
     return children ? (
         <>
-            <Header usuario={`${nameUser}`}/>
+            <Header usuario={`${nameUser}`} />
 
             <div className="flex-layout">
                 <SideBar />

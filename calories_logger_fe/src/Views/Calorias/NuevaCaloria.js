@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { Field } from '../../Components/InputField';
 import Alerta from '../../Components/Alerta';
-import { useDispatch, useSelector } from "react-redux";
-import { useParams, useNavigate } from "react-router-dom";
-import { postNewCalories } from "./CaloriasActions";
-
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams, useNavigate } from 'react-router-dom';
+import { postNewCalories } from './CaloriasActions';
 
 const NuevaCaloria = () => {
     const [caloria, setCaloria] = useState('');
@@ -12,13 +11,14 @@ const NuevaCaloria = () => {
     const [alerta, setAlerta] = useState({});
     const [tipoEjercicio, setTipoEjercicio] = useState('');
 
-    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
+    const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if ([caloria,descripcion, tipoEjercicio].includes('')) {
+        if ([caloria, descripcion, tipoEjercicio].includes('')) {
             setAlerta({
                 msg: 'Todos los campos son obligatorios',
                 error: true,
@@ -26,15 +26,23 @@ const NuevaCaloria = () => {
             return;
         }
 
-        const ok = await postNewCalories(dispatch, caloria,descripcion, tipoEjercicio);
+        const ok = await postNewCalories(
+            dispatch,
+            caloria,
+            descripcion,
+            tipoEjercicio
+        );
         if (ok) {
             setAlerta({
                 msg: 'Agregada Correctamente',
                 error: false,
             });
-          }
 
-        //TODO: Agregar caloria
+            setTimeout(() => {
+                setAlerta({});
+                navigate('/calorias');
+            }, 2500);
+        }
     };
 
     return (
