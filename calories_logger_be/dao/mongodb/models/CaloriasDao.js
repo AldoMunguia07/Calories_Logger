@@ -9,8 +9,8 @@ module.exports = class CaloriasDao extends DaoObject {
         }
     }
 
-    obtenerTodos() {
-        return this.find();
+    obtenerTodos(userId) {
+        return this.find({ userId: this.objectId(userId) });
     }
 
     async obtenerTodosPaginacion({ userId, page = 1, pageLimit = 25 }) {
