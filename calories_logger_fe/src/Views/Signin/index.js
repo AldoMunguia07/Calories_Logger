@@ -52,10 +52,26 @@ const SignIn = () => {
         }
 
         try {
-            setAlerta({});
-            //TODO : CAMBIAR AQUI
-            const data = await getSignIn(formValues.email, formValues.password, formValues.nombre, formValues.ocupacion);
-            Navigator('/login');
+            const data = await getSignIn(
+                formValues.email,
+                formValues.password,
+                formValues.nombre,
+                formValues.ocupacion
+            );
+            setFormValues({
+                email: '',
+                password: '',
+                nombre: '',
+                password2: '',
+                ocupacion: '',
+            });
+            setAlerta({
+                msg: 'Tu cuenta ha sido creada correctemente',
+                error: false,
+            });
+            setTimeout(() => {
+                Navigator('/login');
+            }, 2500);
         } catch (ex) {
             console.log(ex);
         }

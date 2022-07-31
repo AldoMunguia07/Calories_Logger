@@ -21,7 +21,7 @@ const SignInUx = ({
             pageTitle="Crear Cuenta"
         >
             <h1 className="titulo-login">Calories Logger</h1>
-            {alerta.error && <Alerta alerta={alerta} />}
+            {alerta.msg && <Alerta alerta={alerta} />}
 
             <form>
                 <Field

@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Page from '../../Components/Page';
 import { Field } from '../../Components/InputField';
 import Alerta from '../../Components/Alerta';
-import { useDispatch } from "react-redux";
-import { resetPasword } from "./CambiarPasswordActions";
-import { useParams, useNavigate } from "react-router-dom";
-
+import { useDispatch } from 'react-redux';
+import { resetPasword } from './CambiarPasswordActions';
 
 const CambiarPassword = () => {
     const [alerta, setAlerta] = useState({});
@@ -14,6 +12,9 @@ const CambiarPassword = () => {
     const [password2, setPassword2] = useState('');
     const dispatch = useDispatch();
     const { token } = useParams();
+
+    const navigate = useNavigate();
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -45,16 +46,18 @@ const CambiarPassword = () => {
         try {
             const ok = await resetPasword(dispatch, password, token);
 
-            if(ok)
-            {
+            if (ok) {
                 setAlerta({
                     msg: 'Contraseña restaurada exitosamente',
                     error: false,
                 });
                 setPassword('');
                 setPassword2('');
-            }
 
+                setTimeout(() => {
+                    navigate('/login');
+                }, 2500);
+            }
         } catch (error) {
             setAlerta({
                 msg: 'El enlace ha expirado',
@@ -101,7 +104,6 @@ const CambiarPassword = () => {
                 </div>
             </form>
             <nav>
-
                 <Link className="crear-cuenta" to="/login">
                     ¿Ya tienes cuenta? Inicia Sesión.
                 </Link>
