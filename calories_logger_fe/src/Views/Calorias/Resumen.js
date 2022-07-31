@@ -45,11 +45,11 @@ const Resumen = () => {
             <div className="grid-resumen">
                 <div className="resumen-columna datos">
                     <p>Total calorias quemadas</p>
-                    <span>{totalCalorias} Kcal</span>
+                    <span>{totalCalorias} cal</span>
                 </div>
                 <div className="resumen-columna datos">
-                    <p>Promedio Calorias</p>
-                    <span className="promedio">{promedio} Kcal</span>
+                    <p>Promedio calorias quemadas</p>
+                    <span className="promedio">{promedio} cal</span>
                 </div>
             </div>
         </>

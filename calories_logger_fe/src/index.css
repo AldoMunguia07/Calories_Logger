@@ -224,6 +224,7 @@ input[type='submit']:hover {
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
+    font-size: xx-large;
     margin-top: 0;
 }
 .calorias p > span {
@@ -267,6 +268,8 @@ input[type='submit']:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 .datos p {
     font-size: 2rem;
