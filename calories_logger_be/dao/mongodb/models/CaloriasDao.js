@@ -13,11 +13,14 @@ module.exports = class CaloriasDao extends DaoObject {
         return this.find({ userId: this.objectId(userId) });
     }
 
-    async obtenerTodosPaginacion({ userId, page = 1, pageLimit = 25 }) {
+    async obtenerTodosPaginacion({ userId, page = 1, pageLimit = 25 },) {
         const calorias = await this.find(
             { userId: this.objectId(userId) },
             null,
-            null,
+            {
+                '_id.type': 1,
+                '_id': -1
+            },
             null,
             null,
             true

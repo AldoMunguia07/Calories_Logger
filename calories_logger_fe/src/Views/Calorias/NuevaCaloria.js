@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Field } from '../../Components/InputField';
 import Alerta from '../../Components/Alerta';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { postNewCalories } from './CaloriasActions';
 
 const NuevaCaloria = () => {
@@ -41,7 +41,7 @@ const NuevaCaloria = () => {
             setTimeout(() => {
                 setAlerta({});
                 navigate('/calorias');
-            }, 2500);
+            }, 1000);
         }
     };
 

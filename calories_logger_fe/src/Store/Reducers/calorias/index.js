@@ -1,4 +1,11 @@
 const defaultValue = {
+  documents: {
+    total: 0,
+    page: 1,
+    pageLimit: 1,
+    totalPages: 0,
+    calories: []
+  },
 
     isInsert: false,
     error: null,
@@ -18,6 +25,14 @@ const reducer = (state = defaultValue, action = { type: 'NONE', payload: null })
           isInsert: false,
           error: payload
         }
+        case "CALORIES_SUCCESS":
+          return {
+            ...state,
+            documentsIsLoading: false,
+            documents: {
+              ...payload,
+            }
+          }
       default:
         return state;
     }

@@ -3,7 +3,6 @@ import { combineReducers } from "redux";
 // Reducers Individuales
 import app from './app';
 import security from './security';
-import cashflow from './cashflow';
 import calorias from './calorias';
 import olvidepassword from './olvidepassword';
 import cambiarpassword from './cambiarpassword';
@@ -14,8 +13,7 @@ const rootReducer = combineReducers({
     security,
     calorias,
     olvidepassword,
-    cambiarpassword,
-    cashflow
+    cambiarpassword
 });
 
 export default rootReducer;
