@@ -224,6 +224,7 @@ input[type='submit']:hover {
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
+    font-size: xx-large;
     margin-top: 0;
 }
 .calorias p > span {
@@ -241,4 +242,46 @@ input[type='submit']:hover {
 .scroll {
     height: 50rem;
     overflow-y: scroll;
+}
+
+.grid-resumen {
+    display: grid;
+    gap: 2rem;
+    margin-left: 5rem;
+}
+
+@media (min-width: 768px) {
+    .grid-resumen {
+        grid-template-columns: repeat(2, 1fr);
+        margin-left: 0;
+    }
+}
+
+.resumen-columna {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+}
+.datos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.datos p {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.datos span {
+    color: #ef4444;
+    font-size: 7rem;
+    font-weight: bold;
+}
+
+.promedio {
+    color: #eab308 !important;
 }
