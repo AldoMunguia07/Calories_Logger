@@ -1,6 +1,6 @@
 # Calories Logger
 
-Desarroladores:
+Desarrolladores:
 1. Aldo Josué Munguía Hernandez 0607200100897
 2. Jordy Josue Castillo Nuñez 0601200202272
 3. Jhonatan Fabricio Vargas Morales 0801199813012
