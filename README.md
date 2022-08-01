@@ -1,4 +1,4 @@
-# Calories_Logger
+# Calories Logger
 
 Desarroladores:
 1. Aldo Josué Munguía Hernandez 0607200100897
